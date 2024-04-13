@@ -1,0 +1,3 @@
+Usar time.perfcounter do python para medir o quão rapido um código é.
+para calcular coisas usar o pandas ou o numpy.
+https://realpython.com/python-timer/
