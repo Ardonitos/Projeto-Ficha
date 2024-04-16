@@ -1,0 +1,4 @@
+.venv
+.env
+data_generator.py
+__pycache__
