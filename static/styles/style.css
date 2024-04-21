@@ -1,0 +1,58 @@
+nav {
+  background-color: #ff00ea;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav p {
+  flex: 1;
+  margin-right: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav p {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 35px;
+}
+
+.grid-container input,
+.grid-container button {
+  padding: 10px;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.grid-container button {
+  background-color: rgb(238, 199, 232);
+}
+
+.grid-container button:active {
+  background-color: rgb(242, 171, 231);
+}

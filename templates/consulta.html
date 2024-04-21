@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lojinha</title>
+  </head>
+  <body>
+    <h1>Consulta</h1>
+
+    <div class="query"></div>
+    <button class="btnQuery">Query</button>
+
+    <script>
+      const btnQuery = document.querySelector(".btnQuery");
+
+      btnQuery.addEventListener("click", function () {
+        let query = document.querySelector(".query");
+        fetch(`${window.origin}/read`)
+          .then((response) => response.json())
+          .then((data) => {
+            query.textContent = data;
+          });
+      });
+    </script>
+  </body>
+</html>

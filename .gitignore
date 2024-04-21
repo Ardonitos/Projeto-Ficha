@@ -1,4 +1,6 @@
 .venv
 .env
-data_generator.py
 __pycache__
+data_generator.py
+time_perfomer.py
+annotations.txt
