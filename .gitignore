@@ -3,4 +3,6 @@
 __pycache__
 data_generator.py
 time_perfomer.py
+test.py
+templates/test.html
 annotations.txt

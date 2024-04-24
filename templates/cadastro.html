@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='styles/cadastro.css')}}"
+    />
+  </head>
+  <body>
+    <nav>
+      <p>Sistema de Fichas</p>
+      <a href="./">Cadastro</a>
+      <a href="./consulta">Consulta</a>
+      <a>Atualizar</a>
+    </nav>
+    <section>
+      <h2>Cadastro</h2>
+      <div class="grid-container">
+        <input type="text" placeholder="Nome" class="name" />
+        <input type="text" placeholder="Produto" class="product" />
+        <input type="date" class="date" />
+        <input type="text" placeholder="Valor" class="amount" />
+        <input type="text" placeholder="Valor Pago" class="amount-paid" />
+        <input type="text" placeholder="Valor Devido" class="amount-due" />
+        <button class="insert">Cadastrar</button>
+      </div>
+    </section>
+    <script src="{{url_for('static',filename='javascript/cadastro.js')}}"></script>
+  </body>
+</html>

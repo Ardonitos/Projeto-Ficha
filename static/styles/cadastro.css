@@ -50,9 +50,9 @@ nav a:last-child {
 }
 
 .grid-container button {
-  background-color: rgb(238, 199, 232);
+  background-color: rgb(246, 128, 229);
 }
 
 .grid-container button:active {
-  background-color: rgb(242, 171, 231);
+  background-color: rgb(246, 128, 229);
 }

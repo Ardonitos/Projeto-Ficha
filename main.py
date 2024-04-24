@@ -5,29 +5,35 @@ além de também conectar ao banco de dados PostgreSQL
 
 from os import getenv
 from dotenv import load_dotenv
+from datetime import date
 from flask import Flask, jsonify, request, render_template
 from pg_manager import db_connect, CrudOperations
 
+def rightdateformatter(date: date):
+    dateformat = date.strftime('%d-%m-%Y')
+    return dateformat
+
 def float_conversor(value: list) -> list:
-    list_index = [5, 6, 7]
+    list_index = [4, 5, 6]
     for i in list_index:
         if value[i] is not None:
             value[i] = float(value[i])
     return value
 
 def date_conversor(value: list[tuple]) -> list[list]:
-    date_index = 4
-    return_value = []
-    for i in value:
-        return_value.append(list(i))
-    
+    date_index = 3
+    return_value = [list(i) for i in value]
     for i in return_value:
-        i[date_index] = str(i[date_index])
-
-    return return_value
+        i[date_index] = rightdateformatter(i[date_index])
         
+    return return_value
 
-
+def remove_none(data:list):
+    for j, i in enumerate(data):
+        if i is None:
+            data.pop(j)
+    return data
+        
 
 if __name__ == '__main__':
 
@@ -42,17 +48,19 @@ if __name__ == '__main__':
 
     @app.route('/')
     def index():
-        return render_template('site.html')
+        return render_template('cadastro.html')
     
     @app.route('/consulta')
     def consulta():
         return render_template('consulta.html')
 
-    @app.route('/read', methods=['GET'])
+    @app.route('/read', methods=['POST'])
     def read_db():
-        rows = operations.read_all_data()
-        print(date_conversor(rows))
-        return jsonify(date_conversor(rows))
+        data_request: dict = request.get_json()
+        data = list(data_request.values())
+        rows = operations.read_all_data(data=remove_none(data))
+        print(rows)
+        return jsonify(date_conversor(rows)) 
 
     @app.route('/insert', methods=['POST'])
     def insert_into_db():

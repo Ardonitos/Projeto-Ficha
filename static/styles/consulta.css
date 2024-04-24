@@ -1,0 +1,105 @@
+nav {
+  background-color: #ff00ea;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav p {
+  flex: 1;
+  margin-right: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav p {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  border: 1px solid #222222;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #ff57f9;
+}
+
+@media screen and (max-width: 600px) {
+  th,
+  td {
+    padding: 6px;
+  }
+  th,
+  td:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.search input[type="text"],
+.search input[type="date"],
+.search button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.search input[type="text"],
+.search input[type="date"] {
+  flex: 1;
+  max-width: calc(50% - 10px);
+}
+
+.search button {
+  background-color: #ff2ab8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.search button:active {
+  background-color: #ff2bed;
+}
+
+@media screen and (max-width: 600px) {
+  .search input[type="text"],
+  .search input[type="date"],
+  .search button {
+    width: 100%;
+    max-width: 100%;
+  }
+}

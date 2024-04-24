@@ -4,7 +4,11 @@ Pequeno Gerenciador para pequenas operações CRUD no PostgreSQL
 
 import psycopg2
 from psycopg2.extensions import connection, cursor
-from psycopg2.sql import SQL, Identifier
+
+def verifier(data:list[str]) -> bool:
+    answer = data[0].upper()
+    return answer.isupper()
+
 
 def db_connect(dbname:str, user:str, password:str):
     'Conect to the database and return the connection and cursor objects'
@@ -28,7 +32,7 @@ class CrudOperations:
         try:
             self.cur.execute("""
                 INSERT INTO record_table
-                VALUES(%s, %s, %s, %s, %s, %s, %s, %s);
+                VALUES(%s, %s, %s, %s, %s, %s, %s);
                 """, data)
             self.conn.commit()
             print('Insert OK!')
@@ -38,15 +42,18 @@ class CrudOperations:
             print(e.__class__.__name__, e)
             self.conn.rollback()
     
-    def read_all_data(self) -> list[tuple]:
+    def read_all_data(self, data:list) -> list[tuple]:
         'get all the information stored in the table'
-        self.cur.execute(SQL("""SELECT * FROM record_table ORDER BY id ASC"""))
-        rows = self.cur.fetchall()
-        return rows
 
-    def read_data(self, field):
-        'get some especific information in the table'
-        self.cur.execute(SQL("""SELECT {} FROM record_table ORDER BY id ASC""").format(Identifier(field)))
+        if len(data) == 2:
+            self.cur.execute("""SELECT * FROM record_table WHERE name=%s AND date=%s ORDER BY id ASC""", data)
+            rows = self.cur.fetchall()
+            return rows
+        elif verifier(data):
+            self.cur.execute("""SELECT * FROM record_table WHERE name=%s ORDER BY id ASC""", data)
+            rows = self.cur.fetchall()
+            return rows
+        self.cur.execute("""SELECT * FROM record_table WHERE date=%s ORDER BY id ASC""", data)
         rows = self.cur.fetchall()
         return rows
     

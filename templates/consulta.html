@@ -3,25 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lojinha</title>
+    <title>Consulta</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',
+    filename='styles/consulta.css')}}"
+    />
   </head>
   <body>
-    <h1>Consulta</h1>
+    <nav>
+      <p>Sistema de Fichas</p>
+      <a href="./">Cadastro</a>
+      <a href="./consulta">Consulta</a>
+      <a>Atualizar</a>
+    </nav>
+    <section>
+      <h2>Consulta</h2>
+      <div class="search">
+        <input type="text" placeholder="Nome" class="name" />
+        <input type="date" class="date" />
+        <button class="query">Buscar</button>
+      </div>
+      <table class="dataTable">
+        <thead>
+          <tr>
+            <th>Identificador</th>
+            <th>Nome</th>
+            <th>Produto</th>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Valor Pago</th>
+            <th>Valor Devido</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
-    <div class="query"></div>
-    <button class="btnQuery">Query</button>
-
-    <script>
-      const btnQuery = document.querySelector(".btnQuery");
-
-      btnQuery.addEventListener("click", function () {
-        let query = document.querySelector(".query");
-        fetch(`${window.origin}/read`)
-          .then((response) => response.json())
-          .then((data) => {
-            query.textContent = data;
-          });
-      });
-    </script>
+    <script src="{{url_for('static',filename='javascript/consulta.js')}}"></script>
   </body>
 </html>
