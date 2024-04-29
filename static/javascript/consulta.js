@@ -10,10 +10,12 @@ const btnQuery = document.querySelector(".query");
 btnQuery.addEventListener("click", function () {
   const name = ifEmptyReturnNull(document.querySelector(".name").value);
   const date = ifEmptyReturnNull(document.querySelector(".date").value);
+  const dateTwo = ifEmptyReturnNull(document.querySelector(".dateTwo").value);
 
   const postObject = {
     name,
     date,
+    dateTwo,
   };
   fetch(`${window.origin}/read`, {
     method: "POST",

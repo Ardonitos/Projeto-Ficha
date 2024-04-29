@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro</title>
+    <title>Atualizar</title>
     <link
       rel="stylesheet"
-      href="{{url_for('static',filename='styles/cadastro.css')}}"
+      href="{{url_for('static',filename='styles/atualizar.css')}}"
     />
   </head>
   <body>
@@ -17,18 +17,20 @@
       <a href="./atualizar">Atualizar</a>
     </nav>
     <section>
-      <h2>Cadastro</h2>
       <form>
-        <div class="grid-container">
+        <div class="container">
           <input type="text" placeholder="Nome" class="name" required />
-          <input type="text" placeholder="Produto" class="product" />
+          <input
+            type="text"
+            placeholder="Valor Pago"
+            class="amountPaid"
+            required
+          />
           <input type="date" class="date" required />
-          <input type="text" placeholder="Valor" class="amount" />
-          <input type="text" placeholder="Valor Pago" class="amount-paid" />
-          <button class="insert">Cadastrar</button>
+          <button class="btnPaid">Pagou</button>
         </div>
       </form>
     </section>
-    <script src="{{url_for('static',filename='javascript/cadastro.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/atualizar.js')}}"></script>
   </body>
 </html>

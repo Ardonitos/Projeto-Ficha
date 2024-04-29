@@ -1,0 +1,72 @@
+nav {
+  background-color: #ff00ea;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav p {
+  flex: 1;
+  margin-right: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+nav a:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav p {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.container input[type="text"],
+.container input[type="date"],
+.container button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.container input[type="text"],
+.container input[type="date"] {
+  flex: 1;
+  max-width: calc(50% - 10px);
+}
+
+.container button {
+  background-color: #ff2ab8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.container button:active {
+  background-color: #ff2bed;
+}
+
+@media screen and (max-width: 600px) {
+  .container input[type="text"],
+  .container input[type="date"],
+  .container button {
+    width: 100%;
+    max-width: 100%;
+  }
+}
