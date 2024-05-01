@@ -30,6 +30,7 @@ def register_page():
 
     :returns: str: The rendered HTML template for the register page.
     """
+    operations.create_table()
     return render_template('cadastro.html')
     
 @app.route('/consulta')
@@ -87,5 +88,7 @@ def update_row():
     operations.update_data(data)
     return jsonify('Success')
 
-# Run the Flask app
-app.run()
+
+if __name__ == "__main__":
+    # Run the Flask app
+    app.run()

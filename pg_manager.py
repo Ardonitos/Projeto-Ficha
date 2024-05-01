@@ -43,6 +43,27 @@ class CrudOperations:
         """
         self.conn = conn
         self.cur = cur
+
+    def create_table(self):
+        """Create a records table if not exists"""
+        try:
+            self.cur.execute("""
+                         CREATE TABLE IF NOT EXISTS record_table (
+                         id INTEGER PRIMARY KEY NOT NULL,
+                         name VARCHAR(60) NOT NULL,
+                         product TEXT,
+                         date DATE NOT NULL,
+                         amount DOUBLE PRECISION,
+                         amount_paid DOUBLE PRECISION,
+                         amount_due DOUBLE PRECISION
+                         );
+                         """)
+            self.conn.commit()
+            print('Table Created!')
+        except Exception as e:
+            print('Table Already Exists')
+        
+        
         
     def insert_data(self, data: list):
         """
