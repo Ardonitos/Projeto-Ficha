@@ -7,7 +7,7 @@ from psycopg2.extensions import connection, cursor
 from aux_fuctions import verifier, remove_none, update_conversor
 
 
-def db_connect(dbname:str, user:str, password:str) -> tuple:
+def db_connect(dbname:str, user:str, password:str, host:str) -> tuple:
     """
     Connects to the database and returns the connection and cursor objects.
 
@@ -15,11 +15,12 @@ def db_connect(dbname:str, user:str, password:str) -> tuple:
         dbname (str): The name of the database to connect to.
         user (str): The username for authentication.
         password (str): The password for authentication.
+        host (str): The host to connect to.
 
     :returns: tuple: A tuple containing the connection and cursor objects.
     """
     try:
-        conn = psycopg2.connect(f"dbname={dbname} user={user} password={password}")
+        conn = psycopg2.connect(f"dbname={dbname} user={user} password={password} host={host}")
         cur = conn.cursor()
         print('Connection OK!')
         return conn, cur

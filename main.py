@@ -14,10 +14,10 @@ from aux_fuctions import read_conversor, float_conversor
 load_dotenv()
 
 # Get database credentials from environment variables
-DBNAME, DBUSER, DBPASSWORD = getenv('DBNAME'), getenv('DBUSER'), getenv('DBPASSWORD')
+DBNAME, DBUSER, DBPASSWORD, DBHOST = getenv('DBNAME'), getenv('DBUSER'), getenv('DBPASSWORD'), getenv('DBHOST')
 
 # Connect to the database
-conn, cur = db_connect(DBNAME, DBUSER, DBPASSWORD)
+conn, cur = db_connect(DBNAME, DBUSER, DBPASSWORD, DBHOST)
 operations = CrudOperations(conn, cur)
 
 # Initialize Flask app
